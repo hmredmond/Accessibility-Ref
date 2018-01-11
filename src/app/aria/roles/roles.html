@@ -1,0 +1,39 @@
+<section>
+    <header>
+        <h2>Aria roles</h2>
+    </header>
+    <div class="section-body in-columns">
+        <div class="group">
+            <h3>Widget roles</h3>
+            <ul>
+                <li *ngFor="let role of roles">
+                    <expander link-text="{{role.name}}">
+                        <div class="body">
+                            <p>{{role.description}}</p>
+                            <div *ngIf="role.caveats">
+                                <h5>Caveats</h5>
+                                <ul>
+                                    <li *ngFor="let cav of role.caveats">
+                                        {{cav}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div *ngIf="role.examples">
+                                <h5>Examples</h5>
+                                <ul>
+                                    <li *ngFor="let eg of role.examples">
+                                        {{eg}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div *ngIf="role.code">
+                                <h5>Code example</h5>
+                                <code><pre [innerHTML]=role.code|codify></pre></code>
+                            </div>
+                        </div>
+                    </expander>
+                </li>
+            </ul>
+        </div>
+    </div>
+<section>

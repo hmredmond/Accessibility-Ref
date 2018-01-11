@@ -1,0 +1,8 @@
+<div class="expander" [ngClass]="{'expanded' : expanded === true}">
+    <header>
+        <h4><a href="javascript:;" (click)="open()" title="{{linkText}}">{{linkText}}</a></h4>
+    </header>
+    <div class="expander-content" *ngIf="expanded === true" #content >
+        <ng-content></ng-content>
+    </div>
+</div>

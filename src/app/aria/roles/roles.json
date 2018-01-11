@@ -1,0 +1,125 @@
+[
+    {
+        "name": "Alert",
+        "description" : "The alert role will communicate any important information to the user in the form of an interruption.",
+        "examples": [
+            "A message regarding an invalid form",
+            "A message regarding a lost connection to a service",
+            "A modal has popped up and taken focus of the screen"    
+        ],
+        "code" : "<p role=\"alert\">There was an error connecting to the Mosaic service</p>"
+    },
+    {
+        "name": "Alertdialog",
+        "description" : "The alertdialog role will communicate any urgent action that the needs the user's immediate attention",
+        "caveats" : [
+            "Must always have an aria-label or aria-labelledby attribute",
+            "Must always have at least one focussable element, one of which should be given focus when the alert appears",
+            "Tab ordering must wrap inside an alertdialog to prevent the user being able to escape from it"
+        ],
+        "examples": [
+            "A save/cancel dialogue",
+            "An 'are you sure you want to delete this?' dialogue"    
+        ],
+        "code" : "<dialog role=\"alertdialog\" aria-describedby=\"save-message\"><p id=\"save-message\">Are you sure you want to save?</p><button aria-label=\"save\">Save</button><button aria-label=\"cancel\">Cancel</button></dialog>"
+    },
+    {
+        "name": "Button",
+        "description" : "The button role denotes an element that will trigger some kind of action when pressed by the user",
+        "caveats" : [
+            "Any element can have a button role, it doesn't have to be a <button> element (though it's encouraged semantically)",
+            "If a button role is on an element that doesn't naturally fall into the tab ordering, they should have a tabindex attributed to them in order to be focussed by keyboard.",
+            "Avoid using button roles on <a> tags. Browsers treat activation of Buttons and Links differently. Buttons can be pressed with Space or Enter whereas Links are normally just activated with Space"
+        ],
+        "examples": [
+            "A save button",
+            "A play/pause button"    
+        ],
+        "code" : "<span role=\"button\" tabindex=\"0\">Activate awesome mode</span>"
+    },
+    {
+        "name": "Checkbox",
+        "description" : "The checkbox role denotes a binary or ternary checkbox control",
+        "caveats" : [
+            "If an element has a checkbox role, it must have an 'aria-checked' attribute, which can be 'true', 'false' or 'mixed'",
+            "Any element can have a checkbox role, it doesn't have to be <input type=\"checkbox\"> (though it's encouraged semantically)",
+            "If a checkbox role is on an element that doesn't naturally fall into the tab ordering, they should have a tabindex attributed to them in order to be focussed by keyboard."
+        ],
+        "examples": [
+            "A checkbox for toggling filter criteria"
+        ],
+        "code" : "<div class=\"custom-checkbox\" role=\"checkbox\" tabindex=\"0\"></div>"
+    },
+    {
+        "name": "Dialog",
+        "description" : "The dialog role will communicate any non-urgent information or actions to the user",
+        "caveats" : [
+            "Must always have an aria-label or aria-labelledby attribute"
+        ],
+        "examples": [
+            "A banner detailing a confirmation message",
+            "A pop-out meta-data viewer for a graph"
+        ],
+        "code" : "<dialog role=\"dialog\" aria-labelledby=\"dialog-description\"><p id=\"dialog-description\">You successfully saved document.doc</p></dialog>"
+    },
+    {
+        "name": "Gridcell",
+        "description" : "The gridcell role denotes a cell in a table or grid",
+        "caveats" : [
+            "Must always be contained in an element with a 'row' role",
+            "If the header of the cell cannot be determined by the table structure, a 'gridcell' an 'aria-describedby' attribute should reference a relative 'columnheader' role"
+        ],
+        "examples": [
+            "A cell in a table"
+        ],
+        "code" : "<h3 role=\"columnheader\" id=\"Amount sold\"></h3><h3 role=\"columnheader\" id=\"Amount bought\"></h3><table><tbody><tr role=\"row\"><td role=\"gridcell\">123</td><td role=\"gridcell\">456</td></tr></tbody></table>"
+    },
+    {
+        "name": "Link",
+        "description" : "The link role denotes a hyperlink to another resource or page",
+        "caveats" : [
+            "Must only be used if clicking or pressing the element will take the user to another resource"
+        ],
+        "examples": [
+            "A hyperlink"
+        ],
+        "code" : "<a role=\"link\" href=\"www.google.com\" title=\"Navigate to Google\">Google</a>"
+    },
+    {
+        "name": "Log",
+        "description" : "The log role denotes a 'live region' where a stream of information is displayed and updated, usually, in chronological order",
+        "caveats" : [
+            "Log information must appear in a meaningful order - e.g. from top to bottom",
+            "Log roles have an 'aria-live' value of 'polite' by default"
+        ],
+        "examples": [
+            "A chat log",
+            "A error log",
+            "A build log"
+        ],
+        "code" : "<section id=\"build-log\" role=\"log\"><ul><li>Process started</li><li>Process finished</li></ul></section>"
+    },
+    {
+        "name": "Marquee",
+        "description" : "The marquee role denotes a 'live region' where information non-essential to the current page is displayed and updated",
+        "caveats" : [
+            "Log roles have an 'aria-live' value of 'off' by default. If it is important for this information to be read, consider using a higher 'aria-live' level"
+        ],
+        "examples": [
+            "A stock ticker",
+            "Live sports results"
+        ],
+        "code" : "<section id=\"live-results\" role=\"marquee\"><ul><li>Arsenal 2-2 Liverpool</li><li>Cardiff 1-0 Norwich</li></ul></section>"
+    },
+    {
+        "name": "Menuitem",
+        "description" : "The menuitem role denotes an item within a menu",
+        "caveats" : [
+            "a 'menuitem' must either be inside or owned by an element with a 'menu' role"
+        ],
+        "examples": [
+            "An item inside a context menu"
+        ],
+        "code" : "<ul id=\"file-menu\" role=\"menu\"><li role=\"menuitem\">New</li><li role=\"menuitem\">Save</li><li role=\"menuitem\">Save As...</li></ul>"
+    }
+]
